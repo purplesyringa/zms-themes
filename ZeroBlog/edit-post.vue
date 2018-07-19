@@ -19,12 +19,14 @@
 	@import "variables.sass"
 
 	.content-container
-		display: block
+		width: 700px
+		margin-top: 32px
+
 	.content
 		display: block
-		width: $view-width
-		max-width: calc(100% - #{$hspacing})
-		margin: 32px 0
+		min-width: 500px
+		margin-bottom: 50px
+
 
 	.post-title
 		width: 100%

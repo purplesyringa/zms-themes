@@ -39,7 +39,7 @@
 	@import "variables.sass"
 
 	.content-container
-		max-width: 700px
+		max-width: 820px
 		margin-left: 240px
 		padding-left: 60px
 		padding-right: 60px

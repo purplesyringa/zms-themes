@@ -23,7 +23,7 @@
 
 	.header-container
 		display: block
-		width: 220px
+		width: 260px
 		height: calc(100% - 60px)
 		padding-left: 20px
 		padding-right: 20px
@@ -83,7 +83,12 @@
 
 	.links
 		position: absolute
+		left: 0
 		bottom: 32px
+
+		width: 100%
+		padding-left: inherit
+		padding-right: inherit
 
 		text-align: right
 
