@@ -1,6 +1,8 @@
 <template>
 	<div class="footer-container">
 		<div class="footer">
+			<customizable scope="layout" />
+
 			<div class="column">
 				<div class="column-title">{{col1}}</div>
 				<div class="column-link" v-for="link in links1">
@@ -21,6 +23,8 @@
 					<a :href="link[1]">{{link[0]}}</a>
 				</div>
 			</div>
+
+			<customizable scope="layout" />
 		</div>
 	</div>
 </template>
@@ -69,6 +73,13 @@
 		color: rgba(255, 255, 255, 1)
 		text-decoration: underline
 		cursor: pointer
+
+
+	/deep/ .customizable .add
+		color: rgba(255, 255, 255, 0.5)
+
+		&:hover
+			background-color: rgba(255, 255, 255, 0.5)
 </style>
 
 <script language="text/javascript">

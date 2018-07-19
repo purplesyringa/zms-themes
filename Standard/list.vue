@@ -8,19 +8,25 @@
 			</div>
 
 			<div class="post" v-for="post in posts">
+				<customizable scope="post" />
+
 				<div class="post-title">
 					<a @click="$router.navigate(post.url)">{{post.title}}</a>
 				</div>
-
 				<div class="post-info">
 					On {{(new Date(post.date)).toLocaleString()}}
 					by <a @click="$router.navigate(post.userUrl)">{{post.user}}</a>
 				</div>
+
+				<customizable scope="post" />
+
 				<div class="post-description">
 					<div v-html="post.cut"></div>
 
 					<a @click="$router.navigate(post.url)">Read more</a>
 				</div>
+
+				<customizable scope="post" />
 			</div>
 
 			<!-- Pagination -->

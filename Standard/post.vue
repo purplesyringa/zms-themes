@@ -12,6 +12,7 @@
 				<a @click="remove">Delete post</a>
 			</div>
 
+			<customizable scope="post" />
 
 			<div class="post-title">{{post.title}}</div>
 
@@ -19,7 +20,14 @@
 				On {{(new Date(post.date)).toLocaleString()}}
 				by <a @click="$router.navigate(post.userUrl)">{{post.user}}</a>
 			</div>
+
+			<customizable scope="post" />
+
 			<div class="post-description" v-html="post.content"></div>
+
+			<div class="customizable">
+				<customizable scope="post" />
+			</div>
 		</div>
 	</div>
 </template>

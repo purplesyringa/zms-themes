@@ -1,11 +1,19 @@
 <template>
 	<div class="header-container" @click="$router.navigate('')">
 		<div class="header">
+			<div class="right">
+				<customizable scope="layout" />
+			</div>
+
 			<div class="title">
 				{{siteInfo.content.title}}
 				<icon name="cog" scale="2" class="cog" v-if="isAuthor || siteInfo.settings.own" @click.native.stop="$router.navigate('admin')" />
 			</div>
 			<div class="description">{{siteInfo.content.description}}</div>
+
+			<div class="bottom">
+				<customizable scope="layout" />
+			</div>
 		</div>
 	</div>
 </template>
@@ -45,6 +53,20 @@
 	.cog:hover
 		color: rgba(255, 127, 127, 0.6)
 		cursor: pointer
+
+
+	.right
+		float: right
+
+	.bottom
+		margin-top: 16px
+
+
+	/deep/ .customizable .add
+		color: rgba(255, 255, 255, 0.5)
+
+		&:hover
+			background-color: rgba(255, 255, 255, 0.5)
 </style>
 
 <script language="text/javascript">
