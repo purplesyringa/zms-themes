@@ -69,6 +69,7 @@
 
 		a
 			border-bottom: none
+			font-weight: normal
 
 	.post-info
 		font-family: Verdana, Arial, sans-serif

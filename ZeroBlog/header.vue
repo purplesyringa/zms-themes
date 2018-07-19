@@ -6,7 +6,6 @@
 			<a @click="$router.navigate('')">{{siteInfo.content.title}}</a>
 		</h1>
 		<h2>{{siteInfo.content.description}}</h2>
-		<hr />
 
 		<div class="links">
 			<ul>
@@ -25,6 +24,7 @@
 	.header-container
 		display: block
 		width: 220px
+		height: calc(100% - 60px)
 		padding-left: 20px
 		padding-right: 20px
 		margin-top: 60px
@@ -80,16 +80,11 @@
 		line-height: 1.4em
 		color: #AAA
 
-	hr
-		margin: 20px 0
-		margin-left: 100px
-		width: auto
-
-		border: none
-		border-bottom: 1px solid #EEE
-
 
 	.links
+		position: absolute
+		bottom: 32px
+
 		text-align: right
 
 		ul
@@ -98,13 +93,15 @@
 
 			text-align: right
 			list-style-type: none
-			line-height: 2em
 
 			li
-				margin: 0.9em 0
+				margin: 16px 0
 
 				font-family: Verdana, Arial, sans-serif
 				font-size: 16px
+
+				a
+					font-weight: normal
 </style>
 
 <script language="text/javascript">
