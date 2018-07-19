@@ -2,7 +2,7 @@
 	<div class="header-container" @click="$router.navigate('')">
 		<div class="header">
 			<div class="right">
-				<customizable scope="layout" />
+				<customizable scope="layout" name="header-right" />
 			</div>
 
 			<div class="title">
@@ -12,7 +12,7 @@
 			<div class="description">{{siteInfo.content.description}}</div>
 
 			<div class="bottom">
-				<customizable scope="layout" />
+				<customizable scope="layout" name="below-header" />
 			</div>
 		</div>
 	</div>

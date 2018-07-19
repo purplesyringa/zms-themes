@@ -1,7 +1,7 @@
 <template>
 	<div class="footer-container">
 		<div class="footer">
-			<customizable scope="layout" />
+			<customizable scope="layout" name="above-footer" />
 
 			<div class="column">
 				<div class="column-title">{{col1}}</div>
@@ -24,7 +24,7 @@
 				</div>
 			</div>
 
-			<customizable scope="layout" />
+			<customizable scope="layout" name="below-footer" />
 		</div>
 	</div>
 </template>

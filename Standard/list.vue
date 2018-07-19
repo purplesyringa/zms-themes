@@ -8,7 +8,7 @@
 			</div>
 
 			<div class="post" v-for="post in posts">
-				<customizable scope="post" />
+				<customizable scope="post" name="above-post" />
 
 				<div class="post-title">
 					<a @click="$router.navigate(post.url)">{{post.title}}</a>
@@ -18,7 +18,7 @@
 					by <a @click="$router.navigate(post.userUrl)">{{post.user}}</a>
 				</div>
 
-				<customizable scope="post" />
+				<customizable scope="post" name="above-post-content" />
 
 				<div class="post-description">
 					<div v-html="post.cut"></div>
@@ -26,7 +26,7 @@
 					<a @click="$router.navigate(post.url)">Read more</a>
 				</div>
 
-				<customizable scope="post" />
+				<customizable scope="post" name="below-post" />
 			</div>
 
 			<!-- Pagination -->

@@ -1,5 +1,5 @@
 <template>
-	<input type="submit" :value="value" @click="$emit('click')">
+	<input type="submit" :value="value" @click="$emit('click')" :class="{small}">
 </template>
 
 <style lang="sass" scoped>
@@ -15,17 +15,23 @@
 
 		background-color: #803
 		padding: 12px
+		cursor: pointer
 
 		border: none
+
+
+	.small
+		padding: 6px 8px
 </style>
 
 <script type="text/javascript">
 	export default {
 		name: "theme-button",
-		props: ["value"],
+		props: ["value", "small"],
 		data() {
 			return {
-				value: ""
+				value: "",
+				small: false
 			};
 		}
 	};
