@@ -1,0 +1,17 @@
+{
+	"settings": [
+		{
+			"heading": "Sidebar"
+		},
+		{
+			"name": "sidebarLinks",
+			"description": "Links",
+			"type": "string[][]",
+			"table": [
+				"Text",
+				"Address"
+			],
+			"default": []
+		}
+	]
+}
