@@ -64,6 +64,7 @@
 
 <script language="text/javascript">
 	import Posts from "../libs/posts.js";
+	import {zeroPage} from "../zero";
 
 	export default {
 		props: [],
@@ -92,10 +93,12 @@
 			},
 
 			async remove() {
-				let post = await Posts.get(this.$router.currentParams.id);
-				await Posts.remove(post);
+				if(await zeroPage.confirm("Are you sure you want to delete this post?", "Delete")) {
+					let post = await Posts.get(this.$router.currentParams.id);
+					await Posts.remove(post);
 
-				this.$router.navigate("");
+					this.$router.navigate("");
+				}
 			}
 		},
 
