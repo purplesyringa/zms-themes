@@ -32,17 +32,14 @@
 		margin: 0
 		border: none
 
-		font-family: Verdana, Arial, sans-serif
 		font-size: 32px
 		color: #222
 
 	.post-info
-		font-family: Verdana, Arial, sans-serif
 		font-size: 16px
 		color: #666
 
 	.post-description
-		font-family: Verdana, Arial, sans-serif
 		font-size: 16px
 		color: #222
 
@@ -69,10 +66,7 @@
 		display: block
 		margin: 16px 0
 
-		font-family: Verdana, Arial, sans-serif
 		font-size: 16px
-
-
 </style>
 
 <script language="text/javascript">

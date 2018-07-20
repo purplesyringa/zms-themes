@@ -49,8 +49,6 @@
 		width: 30%
 		vertical-align: top
 
-		font-family: Verdana, Arial, sans-serif
-
 	@include phone
 		.column
 			display: block

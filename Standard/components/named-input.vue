@@ -11,7 +11,6 @@
 		padding: 12px 14px 6px
 		margin-bottom: -36px
 
-		font-family: Verdana, Arial, sans-serif
 		font-size: 16px
 		color: #000
 		font-weight: bold
@@ -20,7 +19,6 @@
 		display: block
 		width: calc(100% - 26px)
 
-		font-family: Verdana, Arial, sans-serif
 		font-size: 16px
 		color: #222
 

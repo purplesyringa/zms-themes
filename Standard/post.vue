@@ -42,17 +42,14 @@
 		margin: 32px auto
 
 	.post-title
-		font-family: Verdana, Arial, sans-serif
 		font-size: 32px
 		color: #222
 
 	.post-info
-		font-family: Verdana, Arial, sans-serif
 		font-size: 16px
 		color: #666
 
 	.post-description
-		font-family: Verdana, Arial, sans-serif
 		font-size: 16px
 		color: #222
 
@@ -60,7 +57,6 @@
 	.edit-post, .delete-post
 		display: block
 
-		font-family: Verdana, Arial, sans-serif
 		font-size: 16px
 	.edit-post
 		margin-top: 32px

@@ -56,16 +56,13 @@
 
 
 	.post-title
-		font-family: Verdana, Arial, sans-serif
 		font-size: 32px
 
 	.post-info
-		font-family: Verdana, Arial, sans-serif
 		font-size: 16px
 		color: #666
 
 	.post-description
-		font-family: Verdana, Arial, sans-serif
 		font-size: 16px
 		color: #222
 
@@ -74,7 +71,6 @@
 		display: block
 		margin: 32px 0
 
-		font-family: Verdana, Arial, sans-serif
 		font-size: 16px
 
 
@@ -87,7 +83,6 @@
 		margin-right: 8px
 		padding: 4px 8px
 
-		font-family: Verdana, Arial, sans-serif
 		font-size: 16px
 		color: #FFF
 		background-color: #222

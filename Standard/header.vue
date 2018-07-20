@@ -39,12 +39,10 @@
 
 
 	.title
-		font-family: Verdana, Arial, sans-serif
 		font-size: 64px
 		color: #FFF
 
 	.description
-		font-family: Verdana, Arial, sans-serif
 		font-size: 24px
 		color: rgba(255, 255, 255, 0.8)
 

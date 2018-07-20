@@ -9,7 +9,6 @@
 		margin-top: 16px
 		float: right
 
-		font-family: Verdana, Arial, sans-serif
 		font-size: 16px
 		color: #FFF
 
