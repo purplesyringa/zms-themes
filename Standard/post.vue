@@ -12,7 +12,7 @@
 				<a @click="remove">Delete post</a>
 			</div>
 
-			<customizable scope="post" name="above-post" />
+			<customizable scope="post" name="above-post" :post="post" />
 
 			<div class="post-title">{{post.title}}</div>
 
@@ -21,11 +21,11 @@
 				by <a @click="$router.navigate(post.userUrl)">{{post.user}}</a>
 			</div>
 
-			<customizable scope="post" name="above-post-content" />
+			<customizable scope="post" name="above-post-content" :post="post" />
 
 			<div class="post-description" v-html="post.content"></div>
 
-			<customizable scope="post" name="below-post" />
+			<customizable scope="post" name="below-post" :post="post" />
 		</div>
 	</div>
 </template>
