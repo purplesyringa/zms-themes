@@ -1,0 +1,15 @@
+{
+	"tables": {
+		"comments": {
+			"cols": [
+				["id", "INTEGER"],
+				["post_id", "INTEGER"],
+				["post_json_id", "INTEGER"],
+				["content", "TEXT"],
+				["date", "INTEGER"],
+				["json_id", "INTEGER"]
+			],
+			"indexes": []
+		}
+	}
+}
