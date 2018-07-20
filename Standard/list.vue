@@ -26,7 +26,7 @@
 					<a @click="$router.navigate(post.url)">Read more</a>
 				</div>
 
-				<customizable scope="post" name="below-post" />
+				<customizable scope="post" name="below-read-more" />
 			</div>
 
 			<!-- Pagination -->

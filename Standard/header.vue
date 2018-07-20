@@ -7,8 +7,12 @@
 
 			<div class="title">
 				{{siteInfo.content.title}}
-				<icon name="cog" scale="2" class="cog" v-if="isAuthor || siteInfo.settings.own" @click.native.stop="$router.navigate('admin')" />
-				<icon name="object-group" scale="2" class="cog" v-if="siteInfo.settings.own" @click.native.stop="manageCustomizable" />
+				<span title="Admin" v-if="isAuthor || siteInfo.settings.own" class="cog-container">
+					<icon name="cog" scale="2" @click.native.stop="$router.navigate('admin')" class="cog" />
+				</span>
+				<span title="Manage widgets" v-if="siteInfo.settings.own" class="cog-container">
+					<icon name="object-group" scale="2" @click.native.stop="manageCustomizable" :class="['cog', {'customizable-managed': $global.customizableManaged}]" />
+				</span>
 			</div>
 			<div class="description">{{siteInfo.content.description}}</div>
 
@@ -44,16 +48,23 @@
 		font-size: 24px
 		color: rgba(255, 255, 255, 0.8)
 
-	.cog
+	.cog-container
 		display: inline-block
 		vertical-align: top
 		margin-top: 24px
 
-		color: rgba(255, 255, 255, 0.4)
+		.cog
+			display: inline-block
+			vertical-align: top
 
-	.cog:hover
-		color: rgba(255, 127, 127, 0.6)
-		cursor: pointer
+			color: rgba(255, 255, 255, 0.4)
+
+			&:hover
+				color: rgba(255, 127, 127, 0.6)
+				cursor: pointer
+
+			&.customizable-managed
+				color: rgba(255, 127, 127, 0.6)
 
 
 	.right
@@ -87,9 +98,7 @@
 					settings: {
 						own: false
 					}
-				},
-
-				customizableManaged: false
+				}
 			};
 		},
 
@@ -106,8 +115,7 @@
 			},
 
 			manageCustomizable() {
-				this.customizableManaged = !this.customizableManaged;
-				this.$eventBus.$emit("customizableManaged", this.customizableManaged);
+				this.$global.customizableManaged = !this.$global.customizableManaged;
 			}
 		},
 
