@@ -1,6 +1,10 @@
 <template>
 	<div class="customizable">
-		<div class="add" v-if="siteInfo.settings.own" @click.stop="showPopup" title="Add widget">
+		<div class="widget" v-for="widget in widgets">
+			<component :is="widget.widget" />
+		</div>
+
+		<div class="add" v-if="managed" @click.stop="showPopup" title="Add widget">
 			<icon class="add-icon" name="plus" />
 
 			<div class="popup" @click.stop v-show="popupShown">
@@ -11,9 +15,11 @@
 				<br>
 				The following widgets can be used here:<br>
 				<select v-model="addWidgetName">
-					<option>A</option>
-					<option>B</option>
-					<option>C</option>
+					<optgroup v-for="plugin, pluginName in newWidgets" :label="pluginName">
+						<option v-for="widget, widgetName in plugin" :value="escape(pluginName) + '/' + escape(widgetName)">
+							{{widgetName}}
+						</option>
+					</optgroup>
 				</select><br>
 				<theme-button value="Add" :small="true" @click="addWidget" />
 			</div>
@@ -106,10 +112,13 @@
 </style>
 
 <script language="text/javascript">
+	import Customizable from "../../libs/customizable"
+
+
 	let currentCustomizable = null;
 
 	export default {
-		props: ["scope"],
+		props: ["scope", "name"],
 		name: "customizable",
 		data() {
 			return {
@@ -120,16 +129,26 @@
 				},
 
 				popupShown: false,
-				addWidgetName: ""
+				addWidgetName: "",
+
+				widgetNames: [],
+
+				managed: false
 			};
 		},
 
-		mounted() {
+		async mounted() {
 			this.$eventBus.$on("setSiteInfo", this.setSiteInfo);
 			this.$eventBus.$emit("needSiteInfo");
+			this.$eventBus.$on(`repaintCustomizable-${this.name}`, this.repaint);
+			this.$eventBus.$on("customizableManaged", this.onManaged);
+
+			this.repaint(await Customizable.getWidgets(this.name));
 		},
 		destroyed() {
 			this.$eventBus.$off("setSiteInfo", this.setSiteInfo);
+			this.$eventBus.$off(`repaintCustomizable-${this.name}`, this.repaint);
+			this.$eventBus.$off("customizableManaged", this.onManaged);
 		},
 		methods: {
 			setSiteInfo(siteInfo) {
@@ -153,12 +172,36 @@
 				currentCustomizable = null;
 			},
 
-			addWidget() {
+			async addWidget() {
 				if(!this.addWidgetName) {
 					return;
 				}
 
-				
+				const [plugin, widgetName] = this.addWidgetName.split("/").map(unescape);
+				const widgets = await Customizable.add(this.name, plugin, widgetName);
+				this.closePopup();
+
+				this.$eventBus.$emit(`repaintCustomizable-${this.name}`, widgets);
+			},
+
+			repaint(widgets) {
+				this.widgetNames = widgets;
+			},
+
+			onManaged(managed) {
+				this.managed = managed;
+			}
+		},
+
+		computed: {
+			widgets() {
+				return this.widgetNames.map(({plugin, widgetName}) => {
+					return Customizable.getWidget(this.scope, plugin, widgetName);
+				});
+			},
+
+			newWidgets() {
+				return Customizable.getPossibleWidgets(this.scope);
 			}
 		}
 	};

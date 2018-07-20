@@ -8,6 +8,7 @@
 			<div class="title">
 				{{siteInfo.content.title}}
 				<icon name="cog" scale="2" class="cog" v-if="isAuthor || siteInfo.settings.own" @click.native.stop="$router.navigate('admin')" />
+				<icon name="object-group" scale="2" class="cog" v-if="siteInfo.settings.own" @click.native.stop="manageCustomizable" />
 			</div>
 			<div class="description">{{siteInfo.content.description}}</div>
 
@@ -86,7 +87,9 @@
 					settings: {
 						own: false
 					}
-				}
+				},
+
+				customizableManaged: false
 			};
 		},
 
@@ -100,6 +103,11 @@
 		methods: {
 			setSiteInfo(siteInfo) {
 				this.siteInfo = siteInfo;
+			},
+
+			manageCustomizable() {
+				this.customizableManaged = !this.customizableManaged;
+				this.$eventBus.$emit("customizableManaged", this.customizableManaged);
 			}
 		},
 
