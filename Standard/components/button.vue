@@ -5,7 +5,7 @@
 <style lang="sass" scoped>
 	input
 		display: block
-		width: 100px
+		min-width: 100px
 		margin-top: 16px
 		float: right
 

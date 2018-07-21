@@ -63,6 +63,8 @@
 		color: #666
 
 	.post-description
+		margin: 32px 0
+
 		font-size: 16px
 		color: #222
 
