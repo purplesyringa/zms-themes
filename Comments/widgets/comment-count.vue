@@ -6,6 +6,9 @@
 </template>
 
 <style lang="sass" scoped>
+	.comment-count
+		display: inline-block
+
 	.icon
 		color: #B10DC9
 </style>

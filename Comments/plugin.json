@@ -9,7 +9,10 @@
 				["date", "INTEGER"],
 				["json_id", "INTEGER"]
 			],
-			"indexes": []
+			"indexes": [],
+			"role": "user",
+			"autoincrement": "id",
+			"hotreload": "post"
 		}
 	}
 }
