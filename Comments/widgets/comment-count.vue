@@ -1,7 +1,7 @@
 <template>
 	<div class="comment-count">
 		<icon name="comment-alt" class="icon" />
-		{{post.comments.length}} comments
+		{{(post.comments || []).length}} comments
 	</div>
 </template>
 

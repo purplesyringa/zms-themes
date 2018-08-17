@@ -7,7 +7,11 @@
 		<div class="clearfix" />
 
 		<div class="comment" v-for="comment in post.comments">
-			{{comment}}
+			<a @click="$router.navigate(comment.userUrl)">{{comment.user}}</a>
+			&mdash;
+			{{comment.dateText}}<br>
+
+			{{comment.content}}
 		</div>
 	</div>
 </template>
@@ -15,6 +19,9 @@
 <style lang="sass" scoped>
 	.clearfix
 		clear: both
+
+	.comment
+		margin: 16px 0
 </style>
 
 <script type="text/javascript">
