@@ -1,0 +1,16 @@
+{
+	"tables": {
+		"likes": {
+			"cols": [
+				["id", "INTEGER"],
+				["post_id_json_id", "TEXT"],
+				["json_id", "INTEGER"]
+			],
+			"indexes": [],
+			"role": "user",
+			"autoincrement": "id",
+			"key_col": "post_id_json_id",
+			"hotreload": "post"
+		}
+	}
+}
