@@ -39,12 +39,19 @@
 
 		methods: {
 			async like() {
-				await PluginUtil.DB.insert(
-					"likes",
-					{
-						post_id_json_id: `${this.post.id}/${this.post.json_id}`
-					}
-				);
+				if(!this.liked) {
+					await PluginUtil.DB.insert(
+						"likes",
+						{
+							post_id_json_id: `${this.post.id}/${this.post.json_id}`
+						}
+					);
+				} else {
+					await PluginUtil.DB.remove(
+						"likes",
+						row => row.post_id_json_id == `${this.post.id}/${this.post.json_id}`
+					);
+				}
 			}
 		}
 	};
